@@ -7,6 +7,23 @@ function getComputerChhoice() {
     return defaultSelection[random];
 }
 /*Get input from the user*/
+function getUserChoice() {
+    let input = prompt("Type either rock, paper or scissors");
+
+    /*Converts to lower case*/
+    let result = input.toLowerCase();
+
+    /*Checks if the input is valid*/
+    if (result=="rock"||result=="scissors"||result=="paper") {
+        return result;
+    }
+
+    else {
+        alert("Enter a valid value");
+        getUserChoice();
+    }
+}
+
 /*Decide whether the user or the computer has won*/
 /*Count the wins of the user and the computer*/
 /*Determine the finale winner*/

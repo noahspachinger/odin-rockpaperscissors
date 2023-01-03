@@ -1,6 +1,11 @@
 <script>
 
 /*Generate Rock, Paper or Scissors randomly*/
+function getComputerChhoice() {
+    const defaultSelection = ["rock", "paper", "scissors"];
+    let random = Math.floor(Math.random() * defaultSelection.length);
+    return defaultSelection[random];
+}
 /*Get input from the user*/
 /*Decide whether the user or the computer has won*/
 /*Count the wins of the user and the computer*/

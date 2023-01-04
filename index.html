@@ -76,13 +76,13 @@ function playRound(playerSelection, computerSelection) {
     return winner;
 }
 
-/*Count the wins of the user and the computer*/
+/*Points of the player and the computer in the beginning*/
 let playerPoints = 0;
 let computerPoints = 0;
 console.log("Player: ",playerPoints);
 console.log("Computer: ",computerPoints);
 
-
+/*Count the wins of the user and the computer*/
 function game() {
     while(playerPoints+computerPoints < 5) {
         let winner = playRound(getUserChoice(), getComputerChhoice());
@@ -99,6 +99,14 @@ function game() {
             console.log("Computer: ",computerPoints);
         }
     }
+
+    /*Determine the finale winner*/
+    if (playerPoints>computerPoints) {
+        alert("You win the game")
+    }
+
+    else if (playerPoints<computerPoints) {
+        alert("The computer wins the game")
+    }
 }
-/*Determine the finale winner*/
 </script>

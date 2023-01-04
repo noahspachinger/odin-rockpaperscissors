@@ -31,38 +31,74 @@ function playRound(playerSelection, computerSelection) {
     let winner = "default";
 
     if (playerSelection == "rock" && computerSelection == "paper") {
-        alert("You lose! Paper beats Rock!")
+        alert("You lose! Paper beats Rock!");
         winner = "computer";
     }
 
     else if (playerSelection == "rock" && computerSelection == "scissors") {
-        alert("You win! Rock beats Scissors!")
+        alert("You win! Rock beats Scissors!");
         winner = "player";
     }
 
     else if (playerSelection == "paper" && computerSelection == "scissors") {
-        alert("You lose! Scissors beats Paper!")
+        alert("You lose! Scissors beats Paper!");
         winner = "computer";
     }
 
     else if (playerSelection == "paper" && computerSelection == "rock") {
-        alert("You win! Paper beats Rock!")
+        alert("You win! Paper beats Rock!");
         winner = "player";
     }
 
     else if (playerSelection == "scissors" && computerSelection == "rock") {
-        alert("You lose! Rock beats Scissors!")
+        alert("You lose! Rock beats Scissors!");
         winner = "computer";
     }
 
     else if (playerSelection == "scissors" && computerSelection == "paper") {
-        alert("You win! Scissors beats Paper!")
+        alert("You win! Scissors beats Paper!");
         winner = "player";
+    }
+
+    /*Case of draw*/
+    else if (playerSelection == "rock" && computerSelection == "rock") {
+        alert("It's a draw! Both chose rock");
+    }
+
+    else if (playerSelection == "scissors" && computerSelection == "scissors") {
+        alert("It's a draw! Both chose scissors");
+    }
+
+    else if (playerSelection == "paper" && computerSelection == "paper") {
+        alert("It's a draw! Both chose paper");
     }
 
     return winner;
 }
 
 /*Count the wins of the user and the computer*/
+let playerPoints = 0;
+let computerPoints = 0;
+console.log("Player: ",playerPoints);
+console.log("Computer: ",computerPoints);
+
+
+function game() {
+    while(playerPoints+computerPoints < 5) {
+        let winner = playRound(getUserChoice(), getComputerChhoice());
+
+        if (winner=="player") {
+            playerPoints++;
+            console.log("Player: ",playerPoints);
+            console.log("Computer: ",computerPoints);
+        }
+
+        else if (winner=="computer") {
+            computerPoints++;
+            console.log("Player: ",playerPoints);
+            console.log("Computer: ",computerPoints);
+        }
+    }
+}
 /*Determine the finale winner*/
 </script>

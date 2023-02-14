@@ -53,9 +53,10 @@ let computerPoints = 0;
 
 
 
-/*Decide whether the user or the computer has won*/
+
 function playRound(playerSelection, computerSelection) {
 
+    //Decide whether the user or the computer has won
     let winner = "default";
 
     if (playerSelection == "rock" && computerSelection == "paper") {
@@ -101,6 +102,20 @@ function playRound(playerSelection, computerSelection) {
         alert("It's a draw! Both chose paper");
     }
 
+    //Final Winner evaluation
+    if (playerPoints >= 5) {
+    alert("YOU WIN THIS GAME!")
+    playerPoints = 0;
+    computerPoints = 0;
+    }   
+
+    if (computerPoints >= 5) {
+    alert("THE COMPUTER WINS THIS GAME!")
+    playerPoints = 0;
+    computerPoints = 0;
+    }
+
+    //updating the score on the page
     document.getElementById("playerscore").textContent="Player Score: "+playerPoints;
     document.getElementById("computerscore").textContent="Computer Score: "+computerPoints;
 }

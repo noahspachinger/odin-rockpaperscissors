@@ -1,20 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form>
+    <!--Buttons-->
+    <input type="button" value="rock" onclick="playRound('rock', getComputerChoice())">
+    <input type="button" value="scissors" onclick="playRound('scissors', getComputerChoice())">
+    <input type="button" value="paper" onclick="playRound('paper', getComputerChoice())">
+
+    <!--Score-->
+    <div id="playerscore">Player Score: 0</div>
+    <div id="computerscore">Computer Score: 0</div>
+</form>
 <script>
 
 /*Generate Rock, Paper or Scissors randomly*/
-function getComputerChhoice() {
+function getComputerChoice() {
     const defaultSelection = ["rock", "paper", "scissors"];
     let random = Math.floor(Math.random() * defaultSelection.length);
     return defaultSelection[random];
 }
 
 /*Get input from the user*/
+
+/*
 function getUserChoice() {
     let input = prompt("Type either rock, paper or scissors");
 
-    /*Convert to lower case*/
+    //Convert to lower case
     let result = input.toLowerCase();
 
-    /*Check if the input is valid*/
+    //Check if the input is valid
     if (result=="rock"||result=="scissors"||result=="paper") {
         return result;
     }
@@ -24,7 +45,13 @@ function getUserChoice() {
         result = getUserChoice();
         return result;
     }
-}
+}*/
+
+
+let playerPoints = 0;
+let computerPoints = 0;
+
+
 
 /*Decide whether the user or the computer has won*/
 function playRound(playerSelection, computerSelection) {
@@ -33,32 +60,32 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection == "rock" && computerSelection == "paper") {
         alert("You lose! Paper beats Rock!");
-        winner = "computer";
+        computerPoints++;
     }
 
     else if (playerSelection == "rock" && computerSelection == "scissors") {
         alert("You win! Rock beats Scissors!");
-        winner = "player";
+        playerPoints++;
     }
 
     else if (playerSelection == "paper" && computerSelection == "scissors") {
         alert("You lose! Scissors beats Paper!");
-        winner = "computer";
+        computerPoints++;
     }
 
     else if (playerSelection == "paper" && computerSelection == "rock") {
         alert("You win! Paper beats Rock!");
-        winner = "player";
+        playerPoints++;
     }
 
     else if (playerSelection == "scissors" && computerSelection == "rock") {
         alert("You lose! Rock beats Scissors!");
-        winner = "computer";
+        computerPoints++;
     }
 
     else if (playerSelection == "scissors" && computerSelection == "paper") {
         alert("You win! Scissors beats Paper!");
-        winner = "player";
+        playerPoints++;
     }
 
     /*Case of draw*/
@@ -74,22 +101,19 @@ function playRound(playerSelection, computerSelection) {
         alert("It's a draw! Both chose paper");
     }
 
-    return winner;
+    document.getElementById("playerscore").textContent="Player Score: "+playerPoints;
+    document.getElementById("computerscore").textContent="Computer Score: "+computerPoints;
 }
 
-/*Points of the player and the computer in the beginning*/
-let playerPoints = 0;
-let computerPoints = 0;
-console.log("Player: ",playerPoints);
-console.log("Computer: ",computerPoints);
-
 /*Count the wins of the user and the computer*/
+
+/*
 function game() {
-    while(playerPoints+computerPoints < 5) {
+    for (let i = 0; i>-1 ;i++) {
         let winner = playRound(getUserChoice(), getComputerChhoice());
 
         if (winner=="player") {
-            playerPoints++;
+            playerPoints++;2
             console.log("Player: ",playerPoints);
             console.log("Computer: ",computerPoints);
         }
@@ -101,7 +125,7 @@ function game() {
         }
     }
 
-    /*Determine the finale winner*/
+    //Determine the finale winner
     if (playerPoints>computerPoints) {
         alert("You win the game")
     }
@@ -109,5 +133,7 @@ function game() {
     else if (playerPoints<computerPoints) {
         alert("The computer wins the game")
     }
-}
+}*/
 </script>
+</body>
+</html>

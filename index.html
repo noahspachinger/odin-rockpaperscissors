@@ -13,7 +13,9 @@
     <input type="button" value="scissors" onclick="playRound('scissors', getComputerChoice())">
     <input type="button" value="paper" onclick="playRound('paper', getComputerChoice())">
 
+    <!--Message-->
     <div id="message" style="padding-top: 20px;">To start the game press one of the buttons</div>
+
     <!--Score-->
     <div id="playerscore" style="padding-top: 20px">Player Score: 0</div>
     <div id="computerscore">Computer Score: 0</div>
@@ -27,33 +29,8 @@ function getComputerChoice() {
     return defaultSelection[random];
 }
 
-/*Get input from the user*/
-
-/*
-function getUserChoice() {
-    let input = prompt("Type either rock, paper or scissors");
-
-    //Convert to lower case
-    let result = input.toLowerCase();
-
-    //Check if the input is valid
-    if (result=="rock"||result=="scissors"||result=="paper") {
-        return result;
-    }
-
-    else {
-        alert("Enter a valid value");
-        result = getUserChoice();
-        return result;
-    }
-}*/
-
-
 let playerPoints = 0;
 let computerPoints = 0;
-
-
-
 
 function playRound(playerSelection, computerSelection) {
 
@@ -120,35 +97,6 @@ function playRound(playerSelection, computerSelection) {
     document.getElementById("computerscore").textContent="Computer Score: "+computerPoints;
 }
 
-/*Count the wins of the user and the computer*/
-
-/*
-function game() {
-    for (let i = 0; i>-1 ;i++) {
-        let winner = playRound(getUserChoice(), getComputerChhoice());
-
-        if (winner=="player") {
-            playerPoints++;2
-            console.log("Player: ",playerPoints);
-            console.log("Computer: ",computerPoints);
-        }
-
-        else if (winner=="computer") {
-            computerPoints++;
-            console.log("Player: ",playerPoints);
-            console.log("Computer: ",computerPoints);
-        }
-    }
-
-    //Determine the finale winner
-    if (playerPoints>computerPoints) {
-        alert("You win the game")
-    }
-
-    else if (playerPoints<computerPoints) {
-        alert("The computer wins the game")
-    }
-}*/
 </script>
 </body>
 </html>

@@ -13,8 +13,9 @@
     <input type="button" value="scissors" onclick="playRound('scissors', getComputerChoice())">
     <input type="button" value="paper" onclick="playRound('paper', getComputerChoice())">
 
+    <div id="message" style="padding-top: 20px;">To start the game press one of the buttons</div>
     <!--Score-->
-    <div id="playerscore">Player Score: 0</div>
+    <div id="playerscore" style="padding-top: 20px">Player Score: 0</div>
     <div id="computerscore">Computer Score: 0</div>
 </form>
 <script>
@@ -57,62 +58,61 @@ let computerPoints = 0;
 function playRound(playerSelection, computerSelection) {
 
     //Decide whether the user or the computer has won
-    let winner = "default";
 
     if (playerSelection == "rock" && computerSelection == "paper") {
-        alert("You lose! Paper beats Rock!");
+        document.getElementById("message").textContent="You lose! Paper beats Rock";
         computerPoints++;
     }
 
     else if (playerSelection == "rock" && computerSelection == "scissors") {
-        alert("You win! Rock beats Scissors!");
+        document.getElementById("message").textContent="You win! Rock beats Scissors";
         playerPoints++;
     }
 
     else if (playerSelection == "paper" && computerSelection == "scissors") {
-        alert("You lose! Scissors beats Paper!");
+        document.getElementById("message").textContent="You lose! Scissors beats Paper!";
         computerPoints++;
     }
 
     else if (playerSelection == "paper" && computerSelection == "rock") {
-        alert("You win! Paper beats Rock!");
+        document.getElementById("message").textContent="You win! Paper beats Rock!";
         playerPoints++;
     }
 
     else if (playerSelection == "scissors" && computerSelection == "rock") {
-        alert("You lose! Rock beats Scissors!");
+        document.getElementById("message").textContent="You lose! Rock beats Scissors!";
         computerPoints++;
     }
 
     else if (playerSelection == "scissors" && computerSelection == "paper") {
-        alert("You win! Scissors beats Paper!");
+        document.getElementById("message").textContent="You win! Scissors beats Paper!";
         playerPoints++;
     }
 
     /*Case of draw*/
     else if (playerSelection == "rock" && computerSelection == "rock") {
-        alert("It's a draw! Both chose rock");
+        document.getElementById("message").textContent="It's a draw! Both chose Rock";
     }
 
     else if (playerSelection == "scissors" && computerSelection == "scissors") {
-        alert("It's a draw! Both chose scissors");
+        document.getElementById("message").textContent="It's a draw! Both chose Scissors";
     }
 
     else if (playerSelection == "paper" && computerSelection == "paper") {
-        alert("It's a draw! Both chose paper");
+        document.getElementById("message").textContent="It's a draw! Both chose Paper";
     }
 
     //Final Winner evaluation
     if (playerPoints >= 5) {
-    alert("YOU WIN THIS GAME!")
-    playerPoints = 0;
-    computerPoints = 0;
+        document.getElementById("message").textContent="YOU WIN THIS GAME!";
+        playerPoints = 0;
+        computerPoints = 0;
     }   
 
     if (computerPoints >= 5) {
-    alert("THE COMPUTER WINS THIS GAME!")
-    playerPoints = 0;
-    computerPoints = 0;
+        document.getElementById("message").textContent="THE COMPUTER WINS THIS GAME!";
+        playerPoints = 0;
+        computerPoints = 0;
     }
 
     //updating the score on the page
